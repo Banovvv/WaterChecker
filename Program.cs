@@ -34,14 +34,16 @@ namespace WaterChecker
 
             var failures = htmlDocument.DocumentNode.Descendants("div").Where(node => node.GetAttributeValue("class", "").Equals("list-item")).ToList();
 
+            var text = string.Empty;
+
             foreach (var failure in failures)
             {
                 var message = failure.InnerText;
 
                 if (message.Contains("Ален мак"))
                 {
-                    string text = message.Replace("\t", " ");
-
+                    text = message.Replace("\t", " ");
+                    
                     while (text.IndexOf("  ") >= 0)
                     {
                         text = text.Replace("  ", " ");
@@ -52,6 +54,11 @@ namespace WaterChecker
                     await WriteToFileAndSendEmail(text);
                 }
             }
+
+            if (string.IsNullOrEmpty(text))
+                Console.WriteLine("Няма планирани прекъсвания или аварии.");
+
+            Console.WriteLine($"Следващата проверка в сайта на ВИК Варна ще е в {DateTime.Now.AddHours(1).ToString("HH:mm")}");
         }
 
         private static async Task WriteToFileAndSendEmail(string content)
