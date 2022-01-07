@@ -50,7 +50,6 @@ namespace WaterChecker
                     Console.WriteLine(text);
 
                     await WriteToFileAndSendEmail(text);
-
                 }
             }
         }
@@ -78,8 +77,10 @@ namespace WaterChecker
             string? emailRecipient = ConfigurationManager.AppSettings["Recipient"];
             email.To.Add(emailRecipient);
 
-            using var client = new SmtpClient("smtp.abv.com", 465)
+            using var client = new SmtpClient("smtp-mail.outlook.com", 587)
             {
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(ConfigurationManager.AppSettings["Username"], ConfigurationManager.AppSettings["Password"]),
                 EnableSsl = true
             };
