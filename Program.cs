@@ -10,19 +10,23 @@ namespace WaterChecker
     public static class Program
     {
         private static Timer? _timer = null;
+        private static string? location = string.Empty;
 
         public static void Main()
         {
+            Console.Write("Plese enter the name of a location you want to check: ");
+            location = Console.ReadLine();
+
             _timer = new Timer(TimerCallback, null, 0, 3600000);
             Console.ReadLine();
         }
 
         private static async void TimerCallback(object? o)
         {
-            await StartWaterChecker();
+            await StartWaterChecker(location);
         }
 
-        private static async Task StartWaterChecker()
+        private static async Task StartWaterChecker(string location)
         {
             Console.OutputEncoding = Encoding.UTF8;
                         
@@ -40,7 +44,7 @@ namespace WaterChecker
             {
                 var message = failure.InnerText;
 
-                if (message.Contains("Ален мак"))
+                if (message.Contains(location))
                 {
                     text = message.Replace("\t", " ");
                     
