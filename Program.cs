@@ -60,7 +60,9 @@ namespace WaterChecker
             }
 
             if (string.IsNullOrEmpty(text))
+            {
                 Console.WriteLine("Няма планирани прекъсвания или аварии.");
+            }
 
             Console.WriteLine($"Следващата проверка в сайта на ВИК Варна ще е в {DateTime.Now.AddHours(1).ToString("HH:mm")}");
         }
