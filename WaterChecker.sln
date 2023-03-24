@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterChecker", "WaterChecker.csproj", "{1BEF2C12-7B1F-453F-B9AA-997334D0081D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterChecker", "WaterChecker.csproj", "{1BEF2C12-7B1F-453F-B9AA-997334D0081D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{31F7BECC-D4DB-4FC4-9CCF-8BEBC1F836E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterChecker.Domain", "Core\WaterChecker.Domain\WaterChecker.Domain.csproj", "{912F7804-21BF-4C16-A788-84AFB13C30EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{1BEF2C12-7B1F-453F-B9AA-997334D0081D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BEF2C12-7B1F-453F-B9AA-997334D0081D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BEF2C12-7B1F-453F-B9AA-997334D0081D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912F7804-21BF-4C16-A788-84AFB13C30EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912F7804-21BF-4C16-A788-84AFB13C30EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912F7804-21BF-4C16-A788-84AFB13C30EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912F7804-21BF-4C16-A788-84AFB13C30EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{912F7804-21BF-4C16-A788-84AFB13C30EF} = {31F7BECC-D4DB-4FC4-9CCF-8BEBC1F836E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D12DC825-7E24-437B-BB68-DC92B9DA2912}
